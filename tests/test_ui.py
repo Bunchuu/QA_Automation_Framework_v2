@@ -26,10 +26,18 @@ def test_progress_bar_initial_state(progress_bar_page):
     expect(progress_bar_page.stop_location).to_be_visible()
     expect(progress_bar_page.progress_bar).to_have_text("25%")
 
+
 def test_progress_bar_stops_at_threshold(progress_bar_page):
     progress_bar_page.start()
     progress_bar_page.wait_for_threshold(75)
     progress_bar_page.stop()
     expect(progress_bar_page.result).to_be_visible()
     val = int(progress_bar_page.progress_bar.get_attribute("aria-valuenow"))
-    assert 75 <= val <= 100    
+    assert 75 <= val <= 100  
+
+
+def test_dynamic_table_value_comparison(dynamic_table_page):
+    table_cpu = dynamic_table_page.get_chrome_cpu_from_table()
+    warning_cpu = dynamic_table_page.get_warning_text()
+
+    assert table_cpu in warning_cpu
