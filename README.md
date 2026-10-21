@@ -17,8 +17,9 @@ Lightweight test automation framework demonstrating REST API and Web UI test str
   * Negative scenario handling across non-existent endpoints (404 Not Found) and response time SLAs.
 * **UI Testing (`tests/test_ui.py` + `pages/`):**
   * Implemented using the **Page Object Model (POM)** pattern.
-  * Parameterized authentication test cases verifying positive flows and invalid credential banners.
-  * Dynamic progress bar tracking with custom polling threshold assertions.
+  * Authentication flows: positive login and negative error validation.
+  * Dynamic list operations, element state assertions, and live count verifications.
+  * Dynamic DOM handling: column and row index mapping on randomized tables (`DynamicTablePage`).
   * Headless browser execution with centralized fixture management (`conftest.py`).
 * **Code Quality & Linting:**
   * Static code analysis with **Ruff** enforcing PEP 8 standards.
@@ -30,7 +31,7 @@ Lightweight test automation framework demonstrating REST API and Web UI test str
 ## Repository Structure
 
 ```text
-QA_14_Automation_Repository_v2/
+QA_Automation_Framework_v2/
 ├── .dockerignore
 ├── .github/workflows/tests.yml
 ├── .gitignore
